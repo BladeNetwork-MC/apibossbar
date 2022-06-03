@@ -370,6 +370,7 @@ class BossBar
 	public function setColor(int $color): BossBar
         { 
                 $this->color = $color;
+                return $this;
         }
 
 	public function __toString(): string
