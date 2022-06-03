@@ -26,6 +26,7 @@ class BossBar
 	public ?int $actorId = null;
 	private AttributeMap $attributeMap;
 	protected EntityMetadataCollection $propertyManager;
+        private int $color = 0;
 
 	/**
 	 * BossBar constructor.
@@ -361,10 +362,15 @@ class BossBar
 		$pk->title = $this->getFullTitle();
 		$pk->healthPercent = $this->getPercentage();
 		$pk->unknownShort = 1;
-		$pk->color = 0;//Does not function anyways
+		$pk->color = $this->color;//Does not function anyways
 		$pk->overlay = 0;//Neither. Typical for Mojang: Copy-pasted from Java edition
 		return $pk;
 	}
+	
+	public function setColor(int $color): BossBar
+        { 
+                $this->color = $color;
+        }
 
 	public function __toString(): string
 	{
